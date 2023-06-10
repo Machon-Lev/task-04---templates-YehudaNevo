@@ -1,7 +1,7 @@
 #include <iostream>
 #include <exception>
-#include "../include/PriorityQueue.h"
-#include "../include/Dog.h"
+#include "./Dog.cpp"
+#include "./PriorityQueue.cpp"
 
 using std::cout;
 using std::endl;

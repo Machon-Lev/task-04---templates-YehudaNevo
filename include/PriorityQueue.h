@@ -4,16 +4,28 @@
 #include <list>
 #include <exception>
 
+template<typename T>
+struct MyComparator {
+    int operator()(const T& a, const T& b) const {
+        return a.getWeight() - b.getWeight();
+    }
+};
 
-// any templates?
+
+template<>
+struct MyComparator<float> {
+    float operator()(const float& a, const float& b) const {
+        return a - b;
+    }
+};
+
+template<typename T, typename Comparator = MyComparator<T> >
 class PriorityQueue {
-
 public:
-
-   // You need to complete the implement :
-	void push(const T& t);
-	T poll();
+    void push(const T& t);
+    T poll();
 
 private:
-// add relevant data members
+    std::list<T> queue;
 };
+
